@@ -16,7 +16,9 @@ class Search extends React.Component {
       <div className="container">
         <div className="empty-space-large"></div>
         <form className="form__group" autoComplete="off">
-          <i class="material-icons">search</i>
+          <div className="icon-holder">
+            <i class="material-icons">search</i>
+          </div>
           <input type="text" className="form__input" placeholder="Search for image" id="search" />
           <label htmlFor="search" className="form__label">Search for image</label>
         </form>
