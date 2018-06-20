@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ImageResults from '../ImageResults/index'
+
 import './searchStyles.css'
 import keys from '../../config/keys'
 
@@ -7,19 +9,27 @@ class Search extends React.Component {
   constructor(){
     super()
     this.state = {
-      textInput: ''
+      textInput: '',
+      imageURLs: []
     }
   }
 
   onChange = event => {
-    const testURL = `https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=${keys.flickrKey}&format=json&nojsoncallback=1&per_page=5`
+    const testURL = `https://api.flickr.com/services/rest/?method=flickr.photos.search&text=computer&api_key=${keys.flickrKey}&format=json&nojsoncallback=1`
     this.setState({ [event.target.name]: event.target.value}, 
       () => {
-        console.log('FETCH!!')
-        // fetch(testURL)
-        //   .then(res => res.json())
-        //   .then(data => console.log(data))
-        //   .catch(error => console.log(error))
+        fetch(testURL)
+          .then(res => res.json())
+          .then(data => data.photos.photo.map(image => {
+            const imageURL = `https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`
+            this.setState({
+              imageURLs: [
+                ...this.state.imageURLs,
+                imageURL
+              ]        
+            })
+          }))
+          .catch(error => console.log(error))
       }
     )
   }
@@ -32,9 +42,11 @@ class Search extends React.Component {
           <div className="icon-holder">
             <i className="material-icons">search</i>
           </div>
-          <input type="text" className="form__input" placeholder="Search for image" id="search" name={this.state.textInput} value={this.state.textInput} onChange={this.onChange} />
+          <input type="text" className="form__input" placeholder="Search for image" id="search" name="textInput" value={this.state.textInput} onChange={this.onChange} />
           <label htmlFor="search" className="form__label">Search for image</label>
         </form>
+        <br />
+        <ImageResults photos={this.state.imageURLs} />
       </div>
     )
   }
