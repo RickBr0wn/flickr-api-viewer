@@ -10,7 +10,7 @@ const ImageResults = props => {
     photoList = (
       photos.map((photo, index) => (
         <div key={index}>
-          <img src={photo} />
+          <img src={photo}  />
         </div>
       ))
     )

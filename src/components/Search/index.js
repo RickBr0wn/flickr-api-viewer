@@ -15,10 +15,10 @@ class Search extends React.Component {
   }
 
   onChange = event => {
-    const testURL = `https://api.flickr.com/services/rest/?method=flickr.photos.search&text=computer&api_key=${keys.flickrKey}&format=json&nojsoncallback=1`
+    const flickrApiUrl = `https://api.flickr.com/services/rest/?method=flickr.photos.search&text=computer&api_key=${keys.flickrKey}&format=json&nojsoncallback=1`
     this.setState({ [event.target.name]: event.target.value}, 
       () => {
-        fetch(testURL)
+        fetch(flickrApiUrl)
           .then(res => res.json())
           .then(data => data.photos.photo.map(image => {
             const imageURL = `https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`
@@ -29,7 +29,7 @@ class Search extends React.Component {
               ]        
             })
           }))
-          .catch(error => console.log(error))
+          .catch(error => console.log('There has been an error: ', error))
       }
     )
   }
