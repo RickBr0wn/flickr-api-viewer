@@ -1,0 +1,36 @@
+.splash-container {
+  background: #12c2e9; /* fallback */
+  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.splash-container .hero {
+  background: rgba(221, 221, 221, 0.3);
+  padding: 4rem;
+  max-width: 50rem;
+  min-width: 50rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px -14px 32px 21px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 5px -14px 32px 21px rgba(0, 0, 0, 0.46);
+  box-shadow: 5px -14px 32px 21px rgba(0, 0, 0, 0.46);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.splash-container .hero span {
+  position: relative;
+  top: -1.8rem;
+  left: -50%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}

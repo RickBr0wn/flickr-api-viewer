@@ -1,19 +1,34 @@
 .header {
   z-index: 999999;
-  position: fixed; 
-  top: 0; 
-  width: 100%;
-  background: #12c2e9;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: fixed;
+  top: 0;
+  /* TODO: fix bug, this is hacky, it is caused by the inaccuracies in the gradient */
+  width: 98vw;
+  background: #12c2e9; /* fallback */
+  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
   padding: 2rem;
   color: white;
   text-align: center;
-  -webkit-box-shadow: 5px -14px 32px 21px rgba(0,0,0,0.46);
-  -moz-box-shadow: 5px -14px 32px 21px rgba(0,0,0,0.46);
-  box-shadow: 5px -14px 32px 21px rgba(0,0,0,0.46);
+  -webkit-box-shadow: 5px -14px 32px 21px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 5px -14px 32px 21px rgba(0, 0, 0, 0.46);
+  box-shadow: 5px -14px 32px 21px rgba(0, 0, 0, 0.46);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header h1 {
   font-weight: 300;
+}
+
+.header i {
+  font-size: 3.2rem;
+  transition: all 0.5s;
+}
+
+.header i:hover {
+  font-size: 3.6rem;
+  margin-top: -4px;
+  margin-left: -4px;
 }
