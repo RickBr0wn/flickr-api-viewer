@@ -1,7 +1,7 @@
 import React from 'react'
 import './splashStyles.css'
 import { Link } from 'react-router-dom'
-import { SEARCH } from '../../constants'
+import { SEARCH, CAROUSEL } from '../../constants'
 
 const Splash = () => {
   return (
@@ -14,12 +14,14 @@ const Splash = () => {
           </span>
         </Link>
         <h1>Flickr Viewer</h1>
-        <div>
-          Latest Images
-          <span>
-            <i class='material-icons'>photo_library</i>
-          </span>
-        </div>
+        <Link to={CAROUSEL}>
+          <div>
+            Latest Images
+            <span>
+              <i class='material-icons'>photo_library</i>
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   )
