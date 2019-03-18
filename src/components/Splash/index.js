@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 import { SEARCH, CAROUSEL } from '../../constants'
 
 const Splash = () => {
+  console.log(process.env.REACT_APP_API_KEY)
+  const test = process.env.REACT_APP_API_KEY
+  console.log(test)
+  
   return (
     <div className='splash-container'>
       <div className='hero'>
